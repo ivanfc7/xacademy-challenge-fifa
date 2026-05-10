@@ -1,0 +1,17 @@
+{
+  "name": "fifa-backend",
+  "version": "1.0.0",
+  "description": "Mi primer proyecto con node",
+  "main": "src/app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "ifc",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^1.15.2",
+    "body-parser": "^2.2.2",
+    "express": "^5.2.1",
+    "sequelize": "^6.37.8"
+  }
+}

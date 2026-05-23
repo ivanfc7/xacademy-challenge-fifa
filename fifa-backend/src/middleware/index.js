@@ -1,3 +1,3 @@
 const logging = require('./logging');
-
-module.exports = {logging};
+const passport = require('./passport');
+module.exports = {logging, passport};

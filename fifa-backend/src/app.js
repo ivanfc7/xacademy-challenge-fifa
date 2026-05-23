@@ -1,14 +1,17 @@
 const express = require('express');
 const PORT = 8080;
 const bodyparser = require('body-parser');
-const { logging } = require('./middleware')
-const { userRouter } = require('./routes');
+const { logging, passport } = require('./middleware')
+const { userRouter, playerRouter, authRouter } = require('./routes');
 const {initializeDB} = require('./config/dbConfig');
 
 const app = express();
 app.use(bodyparser.json());
 app.use(logging);
+app.use(passport.initialize());
 app.use("/user", userRouter);
+app.use("/player", playerRouter);
+app.use("/auth", authRouter);
 (async () => {
     initializeDB();
     app.listen(PORT, () => {

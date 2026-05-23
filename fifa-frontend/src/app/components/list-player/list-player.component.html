@@ -1,0 +1,15 @@
+<p>list-player works!</p>
+<div>
+    <p>Jugadores</p>
+    <thead>
+        <th>nombre</th>
+        <th>apellido</th>
+        <th>acciones</th>
+    </thead>
+    <tbody *ngFor="let player of lista">
+        <td>{{player.nombre}}</td>
+        <td>{{player.apellido}}</td>
+        <td> <button>Ver detalles </button></td>
+    </tbody>
+</div>
+    

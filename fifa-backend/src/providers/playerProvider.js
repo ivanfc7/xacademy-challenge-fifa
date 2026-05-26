@@ -1,3 +1,4 @@
+const { Json } = require('sequelize/lib/utils');
 const Player = require('../models/players');
 
 const getPlayers = async () => {
@@ -38,4 +39,17 @@ const createPlayer = async(playerAtributes) =>{
     }
 }
 
-module.exports = { getPlayers, getPlayer, createPlayer }
+const updatePlayer = async(playerID, playerAtributes) =>{
+    try {
+        if(playerID){
+            const [rowsNumber] = await Player.update(playerAtributes, {where: {id: playerID}, returning: true});
+            const playerActualizado = await Player.findByPk(playerID);
+            return {rowsNumber, playerActualizado};
+        }
+    } catch (error) {
+        console.log(`El error es: ${error}`);
+        throw error;
+    }
+}
+
+module.exports = { getPlayers, getPlayer, createPlayer, updatePlayer }

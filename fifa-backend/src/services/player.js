@@ -8,8 +8,12 @@ const getPlayer = async (id) => {
     return await playerProvider.getPlayer(id);
 }
 
-const createPlayer = async(playerAtributes) => {
-    return await playerProvider.createPlayer(playerAtributes);
+const createPlayer = async(player) => {
+    return await playerProvider.createPlayer(player);
 }
 
-module.exports = {getPlayer, getPlayers, createPlayer};
+const updatePlayer = async(id, playerAtributes) =>{
+    return await playerAtributes.updatePlayer(id, playerAtributes);
+}
+
+module.exports = {getPlayer, getPlayers, createPlayer, updatePlayer};

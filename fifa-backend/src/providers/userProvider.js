@@ -30,7 +30,7 @@ const findUser = async (userOptions) => {
         if(user){
             return user;
         }else{
-            throw new Error('Credenciales invalidas');
+            throw new Error('El correo no existe');
         }
     } catch (error) {
         console.log(error);

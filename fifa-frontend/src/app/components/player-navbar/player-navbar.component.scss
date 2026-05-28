@@ -1,0 +1,32 @@
+.navbar-container{
+    margin: 2%;
+    padding: 0.5%;    
+    max-width: 1200px;
+    display: flex;
+    flex-direction: row;
+    background: #e6e4e4;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+}
+
+.btn-navbar{
+    cursor: pointer;
+    border: none;
+    transition: all 0.2s ease;
+    padding: 0.45rem 1.2rem; 
+    border-radius: 8px;
+    margin-inline: 1%;
+
+    background-color: #70a0ee;
+    color: white;
+    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.2); 
+        
+    &:hover { 
+        background-color: #4272f7; 
+        box-shadow: 0 4px 16px rgba(29, 78, 216, 0.3);
+    }
+    
+    &:active {
+        transform: scale(0.98); 
+    }
+}

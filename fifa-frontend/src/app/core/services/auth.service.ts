@@ -37,4 +37,7 @@ export class AuthService{
     getMessageError(){
         return this.messageError;
     }
+    setMessageError(newError: string){
+        this.messageError = newError;
+    }
 }

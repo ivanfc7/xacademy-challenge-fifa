@@ -1,0 +1,131 @@
+.auth-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 80vh; 
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f8fafc;
+}
+
+.login-card {
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  padding: 2.5rem 2rem;
+  width: 100%;
+  max-width: 400px;
+  text-align: center;
+}
+
+.avatar-container {
+  width: 70px;
+  height: 70px;
+  background-color: #eff6ff; 
+  color: #3b82f6; 
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1rem auto;
+  font-size: 1.8rem;
+  box-shadow: 0 2px 10px rgba(59, 130, 246, 0.1);
+}
+
+// Títulos
+.auth-title {
+  margin: 0 0 0.25rem 0;
+  color: #0f172a; 
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.auth-subtitle {
+  margin: 0 0 1.5rem 0;
+  color: #64748b; 
+  font-size: 0.9rem;
+}
+
+.error-alert {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background-color: #fef2f2;
+  border: 1px solid #fee2e2;
+  color: #ef4444;
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  margin-bottom: 1.25rem;
+  font-size: 0.85rem;
+  text-align: left;
+}
+
+// Formulario y Campos de entrada
+.form-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  width: 100%;
+}
+
+// Grupo de input con icono interno de FontAwesome
+.input-group {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+
+  .input-icon {
+    position: absolute;
+    left: 1rem;
+    color: #94a3b8; 
+    font-size: 1rem;
+    transition: color 0.2s ease;
+  }
+
+  input {
+    width: 100%;
+    padding: 0.75rem 1rem 0.75rem 2.5rem;
+    border: 1px solid #cbd5e1; 
+    border-radius: 8px;
+    font-size: 0.95rem;
+    color: #334155;
+    background-color: #ffffff;
+    transition: all 0.2s ease;
+    outline: none;
+
+    &::placeholder {
+      color: #94a3b8;
+    
+      &:focus {
+        border-color: #3b82f6;
+        box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15);
+        
+        & ~ .input-icon {
+          color: #3b82f6; 
+        }
+      }
+    }
+  }
+}
+.btn-login{
+  padding: 0.75rem 1.2rem; 
+  border-radius: 8px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  cursor: pointer;
+  border: none;
+  transition: all 0.2s ease;
+  width: 100%; 
+  background-color: #598ee2;
+  color: white;
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.2); 
+    
+  &:hover { 
+    background-color: #4272f7; 
+    box-shadow: 0 4px 16px rgba(29, 78, 216, 0.3);
+  }
+
+  &:active {
+    transform: scale(0.98); 
+  }
+}

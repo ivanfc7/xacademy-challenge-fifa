@@ -1,11 +1,43 @@
-<p>form-login works!</p>
-<div>
-    <p *ngIf="errorMessage" >{{errorMessage}}</p>
-    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">        
-        <input type="text" formControlName="email" placeholder="email">    
+<div class="auth-wrapper">
+    <div class="login-card">
+      
+      <div class="avatar-container">
+        <i class="fa-sharp fa-solid fa-user"></i>
+      </div>
+      
+      <h2 class="auth-title">Iniciar Sesión</h2>
+      <p class="auth-subtitle">Ingresa tus credenciales para acceder</p>
+  
+      @if (errorMessage) {
+        <div class="error-alert">
+          <i class="fa-solid fa-circle-exclamation"></i>
+          <span>{{ errorMessage }}</span>
+        </div>
+      }
+  
+      <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="form-container"> 
         
-        <input type="password" formControlName="password" placeholder="password">
+        <div class="input-group">
+            <i class="fa-solid fa-envelope input-icon"></i>
+          <input 
+            type="email" 
+            formControlName="email" 
+            placeholder="Correo electrónico"
+            autocomplete="email">
+        </div>
+          
+        <div class="input-group">
+          <i class="fa-solid fa-lock input-icon"></i>
+          <input 
+            type="password" 
+            formControlName="password" 
+            placeholder="Contraseña">
+        </div>
         
-        <button type="submit" >Ingresar</button>
-    </form>
-</div>
+        <button class="btn-login" type="submit">
+          Ingresar
+        </button>
+  
+      </form>
+    </div>
+  </div>

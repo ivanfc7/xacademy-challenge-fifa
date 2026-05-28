@@ -1,15 +1,63 @@
-import { NgFor } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Player, PlayerService } from '../../core/services/player.service';
+import { Subject, takeUntil } from 'rxjs';
+import { PlayerNavbarComponent } from '../player-navbar/player-navbar.component';
 
 @Component({
   selector: 'app-list-player',
-  imports: [NgFor],
+  imports: [PlayerNavbarComponent], 
   templateUrl: './list-player.component.html',
   styleUrl: './list-player.component.scss'
 })
-export class ListPlayerComponent {
-  lista = [
-    {nombre:"Luis", apellido:"caceres"},
-    {nombre:"carmen", apellido:"gonzales"},
-  ]
+export class ListPlayerComponent implements OnInit, OnDestroy {
+  playerList: Player[] = [];
+  mostrarPerfil: boolean = false;
+  currentPage: number = 1;
+  cantidadFilas: number = 5; 
+
+  private readonly destroy$ = new Subject<void>();
+
+  constructor(private readonly playerService: PlayerService) {}
+
+  ngOnInit(): void {
+    this.cargarJugadores();
+  }
+
+  cargarJugadores() {
+    this.playerService.getPlayersList()
+      .pipe(takeUntil(this.destroy$))
+      .subscribe({
+        next: (data) => this.playerList = data,
+        error: () => {
+          this.playerList = [];
+          console.error('No se pudo cargar la lista de jugadores');
+        },
+        complete: () => console.log('Datos cargados')
+      });
+  }
+
+  get totalPages(): number {
+    return Math.ceil(this.playerList.length / this.cantidadFilas);
+  }
+
+  get paginatedPlayers(): Player[] {
+    const index = (this.currentPage - 1) * this.cantidadFilas;
+    return this.playerList.slice(index, index + this.cantidadFilas);
+  }
+
+  cambiarPagina(page: number): void {
+    if (page >= 1 && page <= this.totalPages) {
+      this.currentPage = page;
+    }
+  }
+
+  verPerfil(id: number){
+    this.mostrarPerfil = true;
+    console.log(`Se mostrara el perfil del usuario ${id}. El estado del modal cambia a ${this.mostrarPerfil}`);
+  }
+
+  ngOnDestroy(): void {
+    this.destroy$.next();
+    this.destroy$.complete();
+  }
 }

@@ -1,0 +1,58 @@
+<div class="perfil-overlay" (click)="cerrar.emit()">
+    <div class="perfil-content" (click)="$event.stopPropagation()">
+      
+      <div class="perfil-header">
+        <h3>Perfil del jugador {{ player.long_name }}</h3>
+        <button class="close-btn" title="Cerrar Perfil" (click)="cerrar.emit()">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+      
+      <div class="perfil-body">
+        <div class="player-info-card">
+          <div class="avatar-wrapper">
+            <img [src]="player.player_face_url" 
+                 [alt]="player.long_name" 
+                 referrerpolicy="no-referrer"
+                 class="player-photo" 
+                 (error)="manejarErrorImagen($event)">
+            <span class="overall-badge">{{ player.overall }}</span>
+          </div>
+  
+          <h2 class="player-name">{{ player.long_name }}</h2>
+          <p class="player-club">
+            <i class="fa-solid fa-shield-halved"></i> {{ player.club_name || 'Sin Club' }}
+          </p>
+  
+          <div class="meta-tags">
+            <span class="tag font-bold">{{ player.player_positions }}</span>
+            <span class="tag text-secondary">{{ player.preferred_foot }}</span>
+          </div>
+  
+          <hr class="divider">
+  
+          <div class="player-stats-grid">
+            <div class="stat-box">
+              <span class="stat-label">Potencial</span>
+              <span class="stat-value">{{ player.potential }}</span>
+            </div>
+            <div class="stat-box">
+              <span class="stat-label">Altura</span>
+              <span class="stat-value">{{ player.height_cm }} cm</span>
+            </div>
+            <div class="stat-box">
+              <span class="stat-label">Peso</span>
+              <span class="stat-value">{{ player.weight_kg }} kg</span>
+            </div>
+          </div>
+        </div>
+  
+        <div class="player-chart-card">
+          <h4 class="chart-title">Habilidades Técnicas</h4>
+          <div class="chart-wrapper">
+            <canvas #radarCanvas></canvas>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>

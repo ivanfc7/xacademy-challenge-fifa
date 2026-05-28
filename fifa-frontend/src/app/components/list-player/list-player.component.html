@@ -13,6 +13,7 @@
             <th>Nombre del club</th>
             <th>Posición de juego</th>
             <th>Nacionalidad</th>
+            <th>Edad</th>
             <th class="text-center">Acciones</th>
           </tr>
         </thead>
@@ -23,6 +24,7 @@
               <td>{{ player.club_name }}</td>
               <td><span class="position-tag">{{ player.player_positions }}</span></td>
               <td>{{ player.nationality_name }}</td>
+              <td>{{ player.age}}</td>
               <td class="actions-cell"> 
                 <button class="btn btn-icon" title="Ver perfil" (click)="verPerfil(player.id)"><i class="fa-solid fa-user"></i></button>
                 <button class="btn btn-icon" title="Editar datos"><i class="fa-solid fa-pencil"></i></button>
@@ -59,4 +61,7 @@
         </div>
       </div>
     }
-  </div>
+</div>
+  @if (mostrarPerfil){
+    <app-player-modal-skills [player]="player" (cerrar)="ocultarPerfil()"/>
+  }

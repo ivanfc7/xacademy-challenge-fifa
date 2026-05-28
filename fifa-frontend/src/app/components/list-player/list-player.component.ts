@@ -2,15 +2,17 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Player, PlayerService } from '../../core/services/player.service';
 import { Subject, takeUntil } from 'rxjs';
 import { PlayerNavbarComponent } from '../player-navbar/player-navbar.component';
+import { PlayerModalSkillsComponent } from '../player-modal-skills/player-modal-skills.component';
 
 @Component({
   selector: 'app-list-player',
-  imports: [PlayerNavbarComponent], 
+  imports: [PlayerNavbarComponent, PlayerModalSkillsComponent], 
   templateUrl: './list-player.component.html',
   styleUrl: './list-player.component.scss'
 })
 export class ListPlayerComponent implements OnInit, OnDestroy {
   playerList: Player[] = [];
+  player!: Player;
   mostrarPerfil: boolean = false;
   currentPage: number = 1;
   cantidadFilas: number = 5; 
@@ -53,7 +55,20 @@ export class ListPlayerComponent implements OnInit, OnDestroy {
 
   verPerfil(id: number){
     this.mostrarPerfil = true;
+    document.body.style.overflow = 'hidden';
     console.log(`Se mostrara el perfil del usuario ${id}. El estado del modal cambia a ${this.mostrarPerfil}`);
+    this.playerService.getPlayer(id)
+      .pipe(takeUntil(this.destroy$))
+      .subscribe({
+        next: (data) => this.player = data,
+        error: () => console.log('No se pudo cargar al jugador con id '+id),
+        complete: () => console.log('Jugador cargado')
+      });
+  }
+
+  ocultarPerfil(){
+    this.mostrarPerfil = false;
+    document.body.style.overflow = 'auto';
   }
 
   ngOnDestroy(): void {

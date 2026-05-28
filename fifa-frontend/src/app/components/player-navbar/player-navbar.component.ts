@@ -16,8 +16,8 @@ export class PlayerNavbarComponent {
 
   exportarCSV(){
     console.log('Descargando...');
-    const headers = ['Nombre Completo','Nombre del Club', 'Posicion del juego', 'Nacionalidad'];
-    const rows = this.players.map(p => [p.long_name, p.club_name, p.player_positions.replace(/,/g, '-'), p.nationality_name]);
+    const headers = ['Nombre Completo','Nombre del Club', 'Posicion del juego', 'Nacionalidad', 'Edad'];
+    const rows = this.players.map(p => [p.long_name, p.club_name, p.player_positions.replace(/,/g, '-'), p.nationality_name, p.age]);
     
     let content = headers.join(',') + '\n';
     rows.forEach(row => {

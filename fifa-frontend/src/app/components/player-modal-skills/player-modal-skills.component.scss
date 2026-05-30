@@ -1,12 +1,11 @@
-// Estilos del contenedor del Modal (Overlay)
 .perfil-overlay {
     position: fixed;
     top: 0;
     left: 0;
     width: 100vw;
     height: 100vh;
-    background-color: rgba(15, 23, 42, 0.6); // Fondo oscuro traslúcido
-    backdrop-filter: blur(4px); // Efecto esmerilado moderno
+    background-color: rgba(15, 23, 42, 0.6); 
+    backdrop-filter: blur(4px); 
     display: flex;
     align-items: center;
     justify-content: center;
@@ -55,7 +54,6 @@
     }
   }
   
-  // Cuerpo distribuido en Grid (Izquierda datos, derecha gráfico)
   .perfil-body {
     display: grid;
     grid-template-columns: 1fr;
@@ -64,11 +62,9 @@
     background-color: #ffffff;
   
     @media (min-width: 650px) {
-      grid-template-columns: 280px 1fr; // Dos columnas perfectas
+      grid-template-columns: 280px 1fr; 
     }
   }
-  
-  // Fichas internas (Quitamos las sombras redundantes del ejercicio anterior porque ya estamos dentro de un modal)
   .player-info-card {
     display: flex;
     flex-direction: column;
@@ -96,11 +92,10 @@
     .chart-wrapper {
       position: relative;
       width: 100%;
-      height: 280px; // Altura fija ideal para que entre en el modal
+      height: 280px; 
     }
   }
   
-  // Estilos de la foto y badges (Mantenidos)
   .avatar-wrapper {
     position: relative;
     margin-bottom: 0.75rem;

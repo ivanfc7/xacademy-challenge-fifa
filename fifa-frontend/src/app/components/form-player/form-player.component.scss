@@ -1,0 +1,159 @@
+.form-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem 1rem;
+    background-color: #f8fafc;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+  
+  .form-card {
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    padding: 2.5rem;
+    width: 100%;
+    max-width: 750px; 
+  }
+  
+  .form-header-title {
+    margin-bottom: 2rem;
+    h2 {
+      margin: 0 0 0.5rem 0;
+      color: #0f172a;
+      font-size: 1.5rem;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    p {
+      margin: 0;
+      color: #64748b;
+      font-size: 0.9rem;
+    }
+  }
+  
+  .section-title {
+    font-size: 1rem;
+    color: #1e293b;
+    border-left: 4px solid #3b82f6; 
+    padding-left: 0.5rem;
+    margin: 1.75rem 0 1rem 0;
+    font-weight: 600;
+  }
+  
+  .form-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  
+    @media (min-width: 550px) {
+      grid-template-columns: 1fr 1fr; 
+    }
+  
+    &.stats-grid {
+      grid-template-columns: repeat(3, 1fr); 
+      @media (max-width: 450px) { grid-template-columns: 1fr 1fr; }
+    }
+  }
+  
+  .input-group-row {
+    grid-column: span 2; 
+    display: flex;
+    gap: 1rem;
+    width: 100%;
+  
+    @media (max-width: 550px) {
+      grid-column: span 1;
+      flex-direction: column;
+    }
+  }
+  
+  .input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    width: 100%;
+  
+    label {
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: #475569;
+    }
+  
+    input, .custom-select {
+      padding: 0.65rem 0.8rem;
+      border: 1px solid #cbd5e1;
+      border-radius: 8px;
+      font-size: 0.9rem;
+      color: #334155;
+      outline: none;
+      transition: all 0.2s ease;
+  
+      &:focus {
+        border-color: #3b82f6;
+        box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15);
+      }
+    }
+  }
+  
+  .stat-lbl-pac { color: #d97706 !important; } // Ritmo
+  .stat-lbl-sho { color: #dc2626 !important; } // Tiro
+  .stat-lbl-pas { color: #2563eb !important; } // Pase
+  .stat-lbl-dri { color: #7c3aed !important; } // Regate
+  .stat-lbl-def { color: #16a34a !important; } // Defensa
+  .stat-lbl-phy { color: #4b5563 !important; } // Físico
+  
+  .metadata-footer {
+    margin-top: 1.5rem;
+    background-color: #f8fafc;
+    padding: 1rem;
+    border-radius: 8px;
+    border: 1px dashed #e2e8f0;
+  }
+  
+  // Alertas profesionales
+  .alert {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1rem;
+    border-radius: 8px;
+    margin-bottom: 1.5rem;
+    font-size: 0.85rem;
+  
+    &-success { background-color: #f0fdf4; border: 1px solid #bbf7d0; color: #16a34a; }
+    &-danger { background-color: #fef2f2; border: 1px solid #fee2e2; color: #ef4444; }
+  }
+
+  .form-actions {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 2rem;
+  }
+  
+  .btn-save {
+    background-color: #3b82f6;
+    color: white;
+    padding: 0.75rem 2rem;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    font-weight: 500;
+    cursor: pointer;
+    border: none;
+    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.2);
+    transition: all 0.2s ease;
+  
+    &:hover:not(:disabled) {
+      background-color: #1d4ed8;
+      box-shadow: 0 4px 16px rgba(29, 78, 216, 0.3);
+    }
+  
+    &:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+    }
+  }
+  
+  .text-primary { color: #3b82f6; }

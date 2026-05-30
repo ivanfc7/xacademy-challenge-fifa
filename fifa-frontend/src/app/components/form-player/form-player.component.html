@@ -1,0 +1,146 @@
+<app-option-salir></app-option-salir>
+<div class="form-wrapper">
+    <div class="form-card">
+      
+      <div class="form-header-title">
+        <h2><i class="fa-solid fa-user-plus text-primary"></i> Crear Nuevo Jugador</h2>
+        <p>Completa la ficha técnica.</p>
+      </div>
+  
+      @if (successMessage) {
+        <div class="alert alert-success">
+          <i class="fa-solid fa-circle-check"></i> <span>{{ successMessage }}</span>
+        </div>
+      }
+      @if (errorMessage) {
+        <div class="alert alert-danger">
+          <i class="fa-solid fa-circle-exclamation"></i> <span>{{ errorMessage }}</span>
+        </div>
+      }
+  
+      <form [formGroup]="playerForm" (ngSubmit)="onSubmit()">
+        
+        <h3 class="section-title">Información Básica</h3>
+        <div class="form-grid">
+          <div class="input-group">
+            <label for="long_name">Nombre Completo *</label>
+            <input type="text" formControlName="long_name" placeholder="Nombres y apellidos">
+          </div>
+  
+          <div class="input-group">
+            <label for="player_face_url">URL de la Foto (Face) *</label>
+            <input type="text" formControlName="player_face_url" placeholder="https://cdn.sofifa.net/...">
+          </div>
+  
+          <div class="input-group">
+            <label for="player_positions">Posiciones * (Separadas por comas)</label>
+            <input type="text" formControlName="player_positions" placeholder="Ej: RW, ST, CAM">
+          </div>
+  
+          <div class="input-group-row">
+            <div class="input-group">
+              <label for="age">Edad *</label>
+              <input type="number" formControlName="age">
+            </div>
+            <div class="input-group">
+              <label for="overall">Media (Overall) *</label>
+              <input type="number" formControlName="overall">
+            </div>
+            <div class="input-group">
+              <label for="potential">Potencial *</label>
+              <input type="number" formControlName="potential">
+            </div> 
+          </div>
+        </div>
+  
+        <h3 class="section-title">Club y Datos Físicos</h3>
+        <div class="form-grid">
+          <div class="input-group">
+            <label for="club_name">Nombre del Club</label>
+            <input type="text" formControlName="club_name" placeholder="Ej: Real Madrid">
+          </div>
+  
+          <div class="input-group">
+            <label for="nationality_name">Nacionalidad</label>
+            <input type="text" formControlName="nationality_name" placeholder="Ej: Argentina">
+          </div>
+  
+          <div class="input-group-row">
+            <div class="input-group">
+              <label for="value_eur">Valor (€)</label>
+              <input type="number" formControlName="value_eur">
+            </div>
+            <div class="input-group">
+              <label for="wage_eur">Salario (€)</label>
+              <input type="number" formControlName="wage_eur">
+            </div>
+          </div>
+  
+          <div class="input-group-row">
+            <div class="input-group">
+              <label for="height_cm">Altura (cm)</label>
+              <input type="number" formControlName="height_cm">
+            </div>
+            <div class="input-group">
+              <label for="weight_kg">Peso (kg)</label>
+              <input type="number" formControlName="weight_kg">
+            </div>
+            <div class="input-group">
+              <label for="preferred_foot">Pie Preferido</label>
+              <select formControlName="preferred_foot" class="custom-select">
+                <option value="Right">Derecho</option>
+                <option value="Left">Izquierdo</option>
+              </select>
+            </div>
+          </div>
+        </div>
+  
+        <h3 class="section-title">Atributos Clave (0 - 99)</h3>
+        <div class="form-grid stats-grid">
+          <div class="input-group">
+            <label for="pace" class="stat-lbl-pac">Ritmo (PAC)</label>
+            <input type="number" formControlName="pace">
+          </div>
+          <div class="input-group">
+            <label for="shooting" class="stat-lbl-sho">Tiro (SHO)</label>
+            <input type="number" formControlName="shooting">
+          </div>
+          <div class="input-group">
+            <label for="passing" class="stat-lbl-pas">Pase (PAS)</label>
+            <input type="number" formControlName="passing">
+          </div>
+          <div class="input-group">
+            <label for="dribbling" class="stat-lbl-dri">Regate (DRI)</label>
+            <input type="number" formControlName="dribbling">
+          </div>
+          <div class="input-group">
+            <label for="defending" class="stat-lbl-def">Defensa (DEF)</label>
+            <input type="number" formControlName="defending">
+          </div>
+          <div class="input-group">
+            <label for="physic" class="stat-lbl-phy">Físico (PHY)</label>
+            <input type="number" formControlName="physic">
+          </div>
+        </div>
+  
+        <div class="input-group-row metadata-footer">
+          <div class="input-group">
+            <label for="fifa_version">Versión FIFA</label>
+            <input type="text" formControlName="fifa_version">
+          </div>
+          <div class="input-group">
+            <label for="fifa_update">Actualización</label>
+            <input type="text" formControlName="fifa_update">
+          </div>
+        </div>
+  
+        <div class="form-actions">
+          <button class="btn btn-save" type="submit" [disabled]="isSubmitting">
+            <span *ngIf="!isSubmitting"><i class="fa-solid fa-floppy-disk"></i> Guardar Jugador</span>
+            <span *ngIf="isSubmitting"><i class="fa-solid fa-spinner fa-spin"></i> Guardando...</span>
+          </button>
+        </div>
+  
+      </form>
+    </div>
+  </div>

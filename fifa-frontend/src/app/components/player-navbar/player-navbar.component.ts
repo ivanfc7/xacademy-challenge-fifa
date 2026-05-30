@@ -1,5 +1,6 @@
-import { Component, Input } from '@angular/core';
+import { Component, inject, Input } from '@angular/core';
 import { Player } from '../../core/services/player.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-player-navbar',
@@ -9,6 +10,8 @@ import { Player } from '../../core/services/player.service';
 })
 export class PlayerNavbarComponent {
   @Input() players: Player[] = [];
+
+  private readonly router = inject(Router);
 
   ngOnChanges(){
     console.log('Recibo players: ',this.players)
@@ -31,5 +34,9 @@ export class PlayerNavbarComponent {
     a.download = 'jugadores.csv';
     a.click();
     window.URL.revokeObjectURL(url);
+  }
+
+  goToNewPlayer(){
+    this.router.navigate(['/create-player']);
   }
 }

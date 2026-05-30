@@ -88,4 +88,8 @@ export class PlayerService{
     getPlayer(id: number): Observable<Player>{
         return this.http.get<Player>(this.URL+`${id}`);
     }
+
+    createPlayer(player: Player): Observable<any>{
+        return this.http.post(this.URL+`create`, player);
+    }
 }

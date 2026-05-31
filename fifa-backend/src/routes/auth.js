@@ -19,7 +19,8 @@ router.post('/login', async (req,res)=>{
         }
         const payload = {id: user.id , email: user.email};
         const token = jwt.sign(payload, secret, {expiresIn: '1d'});
-        res.json({token: token});
+        console.log(user.id);
+        res.json({token: token, id: user.id});
     } catch (error) {
         console.error(error);
         res.status(500).json({message: error.message});

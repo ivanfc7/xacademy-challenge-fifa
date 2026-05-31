@@ -157,3 +157,30 @@
   }
   
   .text-primary { color: #3b82f6; }
+
+  .btn-back {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: none;
+    border: none;
+    color: #64748b; 
+    font-size: 0.9rem;
+    font-weight: 500;
+    cursor: pointer;
+    padding: 0.5rem 0;
+    margin: 1rem;
+    transition: all 0.2s ease;
+  
+    i {
+      transition: transform 0.2s ease;
+    }
+  
+    &:hover {
+      color: #3b82f6; 
+      
+      i {
+        transform: translateX(-4px); 
+      }
+    }
+  }

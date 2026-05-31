@@ -4,10 +4,11 @@ import { Subject, takeUntil } from 'rxjs';
 import { PlayerNavbarComponent } from '../player-navbar/player-navbar.component';
 import { PlayerModalSkillsComponent } from '../player-modal-skills/player-modal-skills.component';
 import { Router } from '@angular/router';
+import { MainNavbarComponent } from '../main-navbar/main-navbar.component';
 
 @Component({
   selector: 'app-list-player',
-  imports: [PlayerNavbarComponent, PlayerModalSkillsComponent], 
+  imports: [PlayerNavbarComponent, PlayerModalSkillsComponent, MainNavbarComponent], 
   templateUrl: './list-player.component.html',
   styleUrl: './list-player.component.scss'
 })

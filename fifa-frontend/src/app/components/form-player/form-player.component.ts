@@ -1,14 +1,14 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
 import { PlayerService, Player } from '../../core/services/player.service';
-import { OptionSalirComponent } from '../option-salir/option-salir.component';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Subject, takeUntil } from 'rxjs';
+import { MainNavbarComponent } from '../main-navbar/main-navbar.component';
 
 @Component({
   selector: 'app-form-player',
-  imports: [CommonModule, ReactiveFormsModule, OptionSalirComponent],
+  imports: [CommonModule, ReactiveFormsModule, MainNavbarComponent],
   templateUrl: './form-player.component.html',
   styleUrl: './form-player.component.scss'
 })
@@ -22,6 +22,7 @@ export class FormPlayerComponent {
   player!: Player;
 
   private readonly destroy$ = new Subject<void>();
+  private readonly router = inject(Router);
 
   constructor(
     private readonly fb: FormBuilder,
@@ -110,6 +111,10 @@ export class FormPlayerComponent {
       defending: player.defending,
       physic: player.physic
     });
+  }
+
+  volver(){
+    this.router.navigate(['/player-list']);
   }
 
   onSubmit(): void {

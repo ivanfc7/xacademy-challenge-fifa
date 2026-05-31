@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { OptionSalirComponent } from './option-salir.component';
+import { MainNavbarComponent } from './main-navbar.component';
 
-describe('OptionSalirComponent', () => {
-  let component: OptionSalirComponent;
-  let fixture: ComponentFixture<OptionSalirComponent>;
+describe('MainNavbarComponent', () => {
+  let component: MainNavbarComponent;
+  let fixture: ComponentFixture<MainNavbarComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [OptionSalirComponent]
+      imports: [MainNavbarComponent]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(OptionSalirComponent);
+    fixture = TestBed.createComponent(MainNavbarComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

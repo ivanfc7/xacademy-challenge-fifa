@@ -44,7 +44,11 @@ export class FormLoginComponent {
         this.router.navigate(['/player-list']);
       },
       error: (err)=>{
-        this.errorMessage = this.authService.getMessageError();
+        if (err.error) {
+          this.errorMessage = err.error.error || err.error.message || 'Error en las credenciales';
+        } else {
+          this.errorMessage = this.authService.getMessageError();
+        }
       }
     })
   }

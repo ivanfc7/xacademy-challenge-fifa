@@ -13,7 +13,7 @@ const createPlayer = async(player) => {
 }
 
 const updatePlayer = async(id, playerAtributes) =>{
-    return await playerAtributes.updatePlayer(id, playerAtributes);
+    return await playerProvider.updatePlayer(id, playerAtributes);
 }
 
 module.exports = {getPlayer, getPlayers, createPlayer, updatePlayer};

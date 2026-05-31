@@ -19,7 +19,8 @@ export const AuthInterceptor: HttpInterceptorFn = (req, next) => {
 
     return next(req).pipe(
         catchError((error: HttpErrorResponse)=>{
-            if(error.status === 401 || error.status === 403 || error.status === 502){
+            const esRutaLogin = req.url.includes('/auth/login');
+            if(error.status === 401 || error.status === 403 || error.status === 502 && !esRutaLogin){
                 authService.setMessageError("Token expirado o invalido");
                 router.navigate(['/']);
             }

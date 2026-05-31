@@ -1,8 +1,9 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, inject } from '@angular/core';
 import { Player, PlayerService } from '../../core/services/player.service';
 import { Subject, takeUntil } from 'rxjs';
 import { PlayerNavbarComponent } from '../player-navbar/player-navbar.component';
 import { PlayerModalSkillsComponent } from '../player-modal-skills/player-modal-skills.component';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-list-player',
@@ -17,6 +18,7 @@ export class ListPlayerComponent implements OnInit, OnDestroy {
   currentPage: number = 1;
   cantidadFilas: number = 5; 
 
+  private readonly router = inject(Router);
   private readonly destroy$ = new Subject<void>();
 
   constructor(private readonly playerService: PlayerService) {}
@@ -69,6 +71,10 @@ export class ListPlayerComponent implements OnInit, OnDestroy {
   ocultarPerfil(){
     this.mostrarPerfil = false;
     document.body.style.overflow = 'auto';
+  }
+
+  mostrarFormPlayer(id:number){
+    this.router.navigate([`edit-player/${id}`]);
   }
 
   ngOnDestroy(): void {

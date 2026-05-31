@@ -27,7 +27,7 @@
               <td>{{ player.age}}</td>
               <td class="actions-cell"> 
                 <button class="btn btn-icon" title="Ver perfil" (click)="verPerfil(player.id)"><i class="fa-solid fa-user"></i></button>
-                <button class="btn btn-icon" title="Editar datos"><i class="fa-solid fa-pencil"></i></button>
+                <button class="btn btn-icon" title="Editar datos" (click)="mostrarFormPlayer(player.id)"><i class="fa-solid fa-pencil"></i></button>
               </td>
             </tr>
           } @empty {

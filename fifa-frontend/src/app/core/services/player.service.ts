@@ -92,4 +92,8 @@ export class PlayerService{
     createPlayer(player: Player): Observable<any>{
         return this.http.post(this.URL+`create`, player);
     }
+
+    editPlayer(id:number, player: Player): Observable<any>{
+        return this.http.put(this.URL+`update/${id}`, player);
+    }
 }

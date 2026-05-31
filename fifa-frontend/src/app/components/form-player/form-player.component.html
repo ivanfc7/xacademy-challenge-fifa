@@ -3,15 +3,10 @@
     <div class="form-card">
       
       <div class="form-header-title">
-        <h2><i class="fa-solid fa-user-plus text-primary"></i> Crear Nuevo Jugador</h2>
+        <h2><i class="fa-solid fa-user-plus text-primary"></i> {{ isEditable? 'Actualizar datos':'Crear Nuevo Jugador'}}</h2>
         <p>Completa la ficha técnica.</p>
       </div>
   
-      @if (successMessage) {
-        <div class="alert alert-success">
-          <i class="fa-solid fa-circle-check"></i> <span>{{ successMessage }}</span>
-        </div>
-      }
       @if (errorMessage) {
         <div class="alert alert-danger">
           <i class="fa-solid fa-circle-exclamation"></i> <span>{{ errorMessage }}</span>
@@ -29,7 +24,7 @@
   
           <div class="input-group">
             <label for="player_face_url">URL de la Foto (Face) *</label>
-            <input type="text" formControlName="player_face_url" placeholder="https://cdn.sofifa.net/...">
+            <input type="text" formControlName="player_face_url">
           </div>
   
           <div class="input-group">
@@ -136,11 +131,16 @@
   
         <div class="form-actions">
           <button class="btn btn-save" type="submit" [disabled]="isSubmitting">
-            <span *ngIf="!isSubmitting"><i class="fa-solid fa-floppy-disk"></i> Guardar Jugador</span>
-            <span *ngIf="isSubmitting"><i class="fa-solid fa-spinner fa-spin"></i> Guardando...</span>
+            <span *ngIf="!isSubmitting"><i class="fa-solid fa-floppy-disk"></i> {{ isEditable? 'Actualizar':'Guardar Jugador'}}</span>
+            <span *ngIf="isSubmitting"><i class="fa-solid fa-spinner fa-spin"></i> {{ isEditable? 'Actualizando...':'Guardando...'}}</span>
           </button>
         </div>
-  
       </form>
+      <br>
+      @if (successMessage) {
+        <div class="alert alert-success">
+          <i class="fa-solid fa-circle-check"></i> <span>{{ successMessage }}</span>
+        </div>
+      }
     </div>
   </div>

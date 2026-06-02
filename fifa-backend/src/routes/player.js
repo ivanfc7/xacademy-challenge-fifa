@@ -3,6 +3,29 @@ const playerService = require('../services/player');
 const router = express.Router();
 const passport = require('passport');
 
+/**
+ * @swagger
+ * /player/{playerID}:
+ *   get:
+ *     summary: Obtener un jugador por ID
+ *     description: Retorna la información de un jugador específico.
+ *     tags:
+ *       - Players
+ *     security:
+ *       - bearerAuth: []
+ *     parameters:
+ *       - in: path
+ *         name: playerID
+ *         required: true
+ *         schema:
+ *           type: integer
+ *         description: ID del jugador
+ *     responses:
+ *       200:
+ *         description: Jugador obtenido correctamente
+ *       500:
+ *         description: Error interno del servidor
+ */
 router.get('/:playerID', passport.authenticate('jwt',{session:false}), async (req, res)=>{
     const playerID = req.params.playerID;
     try {
@@ -14,6 +37,24 @@ router.get('/:playerID', passport.authenticate('jwt',{session:false}), async (re
     }
 })
 
+/**
+ * @swagger
+ * /player:
+ *   get:
+ *     summary: Obtener todos los jugadores
+ *     description: Retorna una lista con todos los jugadores registrados.
+ *     tags:
+ *       - Players
+ *     security:
+ *       - bearerAuth: []
+ *     responses:
+ *       200:
+ *         description: Lista de jugadores obtenida
+ *       401:
+ *         description: Token inválido o no enviado
+ *       500:
+ *         description: Error interno del servidor
+ */
 router.get('/', passport.authenticate('jwt',{session:false}),async (req, res)=>{
     try {
         const players = await playerService.getPlayers();
@@ -24,6 +65,77 @@ router.get('/', passport.authenticate('jwt',{session:false}),async (req, res)=>{
     }
 })
 
+/**
+ * @swagger
+ * /player/create:
+ *   post:
+ *     summary: Crear un nuevo jugador
+ *     description: Crea un jugador utilizando los datos enviados en el cuerpo de la petición.
+ *     tags:
+ *       - Players
+ *     security:
+ *       - bearerAuth: []
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             required:
+ *               - long_name
+ *               - player_positions
+ *               - age
+ *             properties:
+ *               long_name:
+ *                 type: string
+ *                 example: Lionel Messi
+ *               player_positions:
+ *                 type: string
+ *                 example: RW,CF
+ *               club_name:
+ *                 type: string
+ *                 example: Inter Miami
+ *               nationality_name:
+ *                 type: string
+ *                 example: Argentina
+ *               age:
+ *                 type: integer
+ *                 example: 37
+ *               overall:
+ *                 type: integer
+ *                 example: 90
+ *               potential:
+ *                 type: integer
+ *                 example: 90
+ *               preferred_foot:
+ *                 type: string
+ *                 example: Left
+ *               pace:
+ *                 type: integer
+ *                 example: 85
+ *               shooting:
+ *                 type: integer
+ *                 example: 92
+ *               passing:
+ *                 type: integer
+ *                 example: 91
+ *               dribbling:
+ *                 type: integer
+ *                 example: 95
+ *               defending:
+ *                 type: integer
+ *                 example: 40
+ *               physic:
+ *                 type: integer
+ *                 example: 65
+ *     responses:
+ *       201:
+ *         description: Jugador creado correctamente
+ *       401:
+ *         description: Token inválido o no enviado
+ *       500:
+ *         description: Error interno del servidor
+ */
 router.post('/create', passport.authenticate('jwt', {session: false}), async (req, res) =>{
     const {
         fifa_version,
@@ -117,6 +229,62 @@ router.post('/create', passport.authenticate('jwt', {session: false}), async (re
     }
 })
 
+/**
+ * @swagger
+ * /player/update/{playerID}:
+ *   put:
+ *     summary: Actualizar un jugador
+ *     description: Actualiza la información de un jugador existente.
+ *     tags:
+ *       - Players
+ *     security:
+ *       - bearerAuth: []
+ *     parameters:
+ *       - in: path
+ *         name: playerID
+ *         required: true
+ *         schema:
+ *           type: integer
+ *         description: ID del jugador
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               long_name:
+ *                 type: string
+ *                 example: Lionel Messi
+ *               club_name:
+ *                 type: string
+ *                 example: Inter Miami
+ *               overall:
+ *                 type: integer
+ *                 example: 90
+ *               potential:
+ *                 type: integer
+ *                 example: 90
+ *               pace:
+ *                 type: integer
+ *                 example: 85
+ *               shooting:
+ *                 type: integer
+ *                 example: 92
+ *               passing:
+ *                 type: integer
+ *                 example: 91
+ *               dribbling:
+ *                 type: integer
+ *                 example: 95
+ *     responses:
+ *       201:
+ *         description: Jugador actualizado correctamente
+ *       401:
+ *         description: Token inválido o no enviado
+ *       500:
+ *         description: Error interno del servidor
+ */
 router.put('/update/:playerID', passport.authenticate('jwt',{session:false}), async (req, res)=>{
     const playerID = req.params.playerID;
     const {

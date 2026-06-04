@@ -3,19 +3,11 @@
   <i class="fa-solid fa-arrow-left"></i> Volver a la lista
 </button>
 <div class="form-wrapper">
-    <div class="form-card">
-      
+    <div class="form-card"> 
       <div class="form-header-title">
         <h2><i class="fa-solid fa-user-plus text-primary"></i> {{ isEditable? 'Actualizar datos':'Crear Nuevo Jugador'}}</h2>
         <p>Completa la ficha técnica.</p>
       </div>
-  
-      @if (errorMessage) {
-        <div class="alert alert-danger">
-          <i class="fa-solid fa-circle-exclamation"></i> <span>{{ errorMessage }}</span>
-        </div>
-      }
-  
       <form [formGroup]="playerForm" (ngSubmit)="onSubmit()">
         
         <h3 class="section-title">Información Básica</h3>
@@ -181,6 +173,11 @@
       @if (successMessage) {
         <div class="alert alert-success">
           <i class="fa-solid fa-circle-check"></i> <span>{{ successMessage }}</span>
+        </div>
+      }
+      @if (errorMessage) {
+        <div class="alert alert-danger">
+          <i class="fa-solid fa-circle-exclamation"></i> <span>{{ errorMessage }}</span>
         </div>
       }
     </div>

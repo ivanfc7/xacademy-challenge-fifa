@@ -36,17 +36,19 @@ Este proyecto consta de un backend en Node.js (Express + Sequelize) y un fronten
   
 ## Historial de commits
 ```bash
-λ git log --pretty=format:"%h %ad | %s" --date=short
-6c5688d 2026-05-31 | Funcion cerrar sesion y otros detalles
-20ff537 2026-05-30 | Terminando la funcion editar jugados en el frontend
-c957360 2026-05-29 | Crear un nuevo jugador
-8d0b27d 2026-05-28 | Implementando chart.js
-b029c81 2026-05-28 | Implementando estilos en login y tabla de jugadores
-6cd7d8e 2026-05-26 | Implementando login en backend y frontend
-8775233 2026-05-23 | Primera estructura del frontend angular
-02039bb 2026-05-23 | Endpoint del backend user y player
-fb14153 2026-05-10 | Agregando README
-42d8cbb 2026-05-10 | Iniciando 
+λ git log --oneline
+c300225 (HEAD -> master, origin/master) Implementacion de detalles faltantes
+e528a12 Implementacion de swagger.js
+6c5688d Funcion cerrar sesion y otros detalles
+20ff537 Terminando la funcion editar jugados en el frontend
+c957360 Crear un nuevo jugador
+8d0b27d Implementando chart.js
+b029c81 Implementando estilos en login y tabla de jugadores
+6cd7d8e Implementando login en backend y frontend
+8775233 Primera estructura del frontend angular
+02039bb Endpoint del backend user y player
+fb14153 Agregando README
+42d8cbb Iniciando proyecto
 ```
 
 ## Decisiones Funcionales

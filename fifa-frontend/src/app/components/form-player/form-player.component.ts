@@ -79,14 +79,13 @@ export class FormPlayerComponent {
       body_type: ['Normal'],
       player_traits: [''],
 
-      // Valores por defecto no figuran en el formulario
-      // Atacantes
+      // Ataque
       attacking_crossing: [50],
       attacking_finishing: [50],
       attacking_heading_accuracy: [50],
       attacking_short_passing: [50],
       attacking_volleys: [50],
-      // Skills detallados
+      // Habilidades
       skill_dribbling: [50],
       skill_curve: [50],
       skill_fk_accuracy: [50],
@@ -98,7 +97,7 @@ export class FormPlayerComponent {
       movement_agility: [50],
       movement_reactions: [50],
       movement_balance: [50],
-      // Poderes
+      // Potencia
       power_shot_power: [50],
       power_jumping: [50],
       power_stamina: [50],
@@ -111,7 +110,7 @@ export class FormPlayerComponent {
       mentality_vision: [50],
       mentality_penalties: [50],
       mentality_composure: [50],
-      // Defensivos internos
+      // Defensiva
       defending_marking: [50],
       defending_standing_tackle: [50],
       defending_sliding_tackle: [50],
@@ -121,7 +120,7 @@ export class FormPlayerComponent {
       goalkeeping_kicking: [50],
       goalkeeping_positioning: [50],
       goalkeeping_reflexes: [50],
-      goalkeeping_speed: [50]
+      goalkeeping_speed: null
     });
   }
 
@@ -156,13 +155,67 @@ export class FormPlayerComponent {
       work_rate: player.work_rate,
       body_type: player.body_type,
       player_traits: player.player_traits,
+      // Ataque
+      attacking_crossing: player.attacking_crossing,
+      attacking_finishing: player.attacking_finishing,
+      attacking_heading_accuracy: player.attacking_heading_accuracy,
+      attacking_short_passing: player.attacking_short_passing,
+      attacking_volleys: player.attacking_volleys,
+      // Habilidades
+      skill_dribbling: player.skill_dribbling,
+      skill_curve: player.skill_curve,
+      skill_fk_accuracy: player.skill_fk_accuracy,
+      skill_long_passing: player.skill_long_passing,
+      skill_ball_control: player.skill_ball_control,
+      // Movimientos
+      movement_acceleration: player.movement_acceleration,
+      movement_sprint_speed: player.movement_sprint_speed,
+      movement_agility: player.movement_agility,
+      movement_reactions: player.movement_reactions,
+      movement_balance: player.movement_balance,
+      // Potencia
+      power_shot_power: player.power_shot_power,
+      power_jumping: player.power_jumping,
+      power_stamina: player.power_stamina,
+      power_strength: player.power_strength,
+      power_long_shots: player.power_long_shots,
+      // Mentalidad
+      mentality_aggression: player.mentality_aggression,
+      mentality_interceptions: player.mentality_interceptions,
+      mentality_positioning: player.mentality_vision,
+      mentality_vision: player.mentality_vision,
+      mentality_penalties: player.mentality_penalties,
+      mentality_composure: player.mentality_composure,
+      // Defensiva
+      defending_marking: player.defending_marking,
+      defending_standing_tackle: player.defending_standing_tackle,
+      defending_sliding_tackle: player.defending_sliding_tackle,
+      // Porteros
+      goalkeeping_diving: player.goalkeeping_diving,
+      goalkeeping_handling: player.goalkeeping_handling,
+      goalkeeping_kicking: player.goalkeeping_kicking,
+      goalkeeping_positioning: player.goalkeeping_positioning,
+      goalkeeping_reflexes: player.goalkeeping_reflexes,
+      goalkeeping_speed: player.goalkeeping_speed
     });
   }
 
-  volver(){
+  secciones: { [key: string]: boolean } = {
+    ataque: false,
+    habilidad: false,
+    movimiento: false,
+    potencia: false,
+    mentalidad: false,
+    defensa: false,
+    porteria: false,
+  };
+  
+  desplegar(nombre: string): void {
+    this.secciones[nombre] = !this.secciones[nombre];
+  }
+  volver(): void{
     this.router.navigate(['/player-list']);
   }
-
   onSubmit(): void {
     if (this.playerForm.invalid) {
       this.errorMessage = 'Por favor, completa todos los campos obligatorios correctamente.';

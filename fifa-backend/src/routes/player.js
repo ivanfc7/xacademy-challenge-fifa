@@ -166,47 +166,47 @@ router.post('/create', passport.authenticate('jwt', {session: false}), async (re
         body_type,
         player_traits,
         // Atacantes
-      attacking_crossing,
-      attacking_finishing,
-      attacking_heading_accuracy,
-      attacking_short_passing,
-      attacking_volleys,
-      // Skills detallados
-      skill_dribbling,
-      skill_curve,
-      skill_fk_accuracy,
-      skill_long_passing,
-      skill_ball_control,
-      // Movimientos
-      movement_acceleration,
-      movement_sprint_speed,
-      movement_agility,
-      movement_reactions,
-      movement_balance,
-      // Poderes
-      power_shot_power,
-      power_jumping,
-      power_stamina,
-      power_strength,
-      power_long_shots,
-      // Mentalidad
-      mentality_aggression,
-      mentality_interceptions,
-      mentality_positioning,
-      mentality_vision,
-      mentality_penalties,
-      mentality_composure,
-      // Defensivos internos
-      defending_marking,
-      defending_standing_tackle,
-      defending_sliding_tackle,
-      // Porteros
-      goalkeeping_diving,
-      goalkeeping_handling,
-      goalkeeping_kicking,
-      goalkeeping_positioning,
-      goalkeeping_reflexes,
-      goalkeeping_speed
+        attacking_crossing,
+        attacking_finishing,
+        attacking_heading_accuracy,
+        attacking_short_passing,
+        attacking_volleys,
+        // Skills detallados
+        skill_dribbling,
+        skill_curve,
+        skill_fk_accuracy,
+        skill_long_passing,
+        skill_ball_control,
+        // Movimientos
+        movement_acceleration,
+        movement_sprint_speed,
+        movement_agility,
+        movement_reactions,
+        movement_balance,
+        // Poderes
+        power_shot_power,
+        power_jumping,
+        power_stamina,
+        power_strength,
+        power_long_shots,
+        // Mentalidad
+        mentality_aggression,
+        mentality_interceptions,
+        mentality_positioning,
+        mentality_vision,
+        mentality_penalties,
+        mentality_composure,
+        // Defensivos internos
+        defending_marking,
+        defending_standing_tackle,
+        defending_sliding_tackle,
+        // Porteros
+        goalkeeping_diving,
+        goalkeeping_handling,
+        goalkeeping_kicking,
+        goalkeeping_positioning,
+        goalkeeping_reflexes,
+        goalkeeping_speed
     } = req.body;
     try {
         const newPlayer = await playerService.createPlayer({
@@ -374,7 +374,49 @@ router.put('/update/:playerID', passport.authenticate('jwt',{session:false}), as
         international_reputation,
         work_rate,
         body_type,
-        player_traits
+        player_traits,
+        // Atacantes
+        attacking_crossing,
+        attacking_finishing,
+        attacking_heading_accuracy,
+        attacking_short_passing,
+        attacking_volleys,
+        // Skills detallados
+        skill_dribbling,
+        skill_curve,
+        skill_fk_accuracy,
+        skill_long_passing,
+        skill_ball_control,
+        // Movimientos
+        movement_acceleration,
+        movement_sprint_speed,
+        movement_agility,
+        movement_reactions,
+        movement_balance,
+        // Poderes
+        power_shot_power,
+        power_jumping,
+        power_stamina,
+        power_strength,
+        power_long_shots,
+        // Mentalidad
+        mentality_aggression,
+        mentality_interceptions,
+        mentality_positioning,
+        mentality_vision,
+        mentality_penalties,
+        mentality_composure,
+        // Defensivos internos
+        defending_marking,
+        defending_standing_tackle,
+        defending_sliding_tackle,
+        // Porteros
+        goalkeeping_diving,
+        goalkeeping_handling,
+        goalkeeping_kicking,
+        goalkeeping_positioning,
+        goalkeeping_reflexes,
+        goalkeeping_speed
     } = req.body;
     try {
         const {numRows, playerUpdated} = playerService.updatePlayer(playerID, { 
@@ -406,7 +448,50 @@ router.put('/update/:playerID', passport.authenticate('jwt',{session:false}), as
             international_reputation: international_reputation ? parseInt(international_reputation) : 1,
             work_rate: work_rate || 'Medium/Medium',
             body_type: body_type || 'Normal',
-            player_traits: player_traits || null});
+            player_traits: player_traits || null,
+            // Atacantes
+            attacking_crossing: parseInt(attacking_crossing),
+            attacking_finishing: parseInt(attacking_finishing),
+            attacking_heading_accuracy: parseInt(attacking_heading_accuracy),
+            attacking_short_passing: parseInt(attacking_short_passing),
+            attacking_volleys: parseInt(attacking_volleys),
+            // Skills detallados
+            skill_dribbling: parseInt(skill_dribbling),
+            skill_curve: parseInt(skill_curve),
+            skill_fk_accuracy: parseInt(skill_fk_accuracy),
+            skill_long_passing: parseInt(skill_long_passing),
+            skill_ball_control: parseInt(skill_ball_control),
+            // Movimientos
+            movement_acceleration: parseInt(movement_acceleration),
+            movement_sprint_speed: parseInt(movement_sprint_speed),
+            movement_agility: parseInt(movement_agility),
+            movement_reactions: parseInt(movement_reactions),
+            movement_balance: parseInt(movement_balance),
+            // Poderes
+            power_shot_power: parseInt(power_shot_power),
+            power_jumping: parseInt(power_jumping),
+            power_stamina: parseInt(power_stamina),
+            power_strength: parseInt(power_strength),
+            power_long_shots: parseInt(power_long_shots),
+            // Mentalidad
+            mentality_aggression: parseInt(mentality_aggression),
+            mentality_interceptions: parseInt(mentality_interceptions),
+            mentality_positioning: parseInt(mentality_positioning),
+            mentality_vision: parseInt(mentality_vision),
+            mentality_penalties: parseInt(mentality_penalties),
+            mentality_composure: parseInt(mentality_composure),
+            // Defensivos internos
+            defending_marking: parseInt(defending_marking),
+            defending_standing_tackle: parseInt(defending_standing_tackle),
+            defending_sliding_tackle: parseInt(defending_sliding_tackle),
+            // Porteros
+            goalkeeping_diving: parseInt(goalkeeping_diving),
+            goalkeeping_handling: parseInt(goalkeeping_handling),
+            goalkeeping_kicking: parseInt(goalkeeping_kicking),
+            goalkeeping_positioning: parseInt(goalkeeping_positioning),
+            goalkeeping_reflexes: parseInt(goalkeeping_reflexes),
+            goalkeeping_speed: parseInt(goalkeeping_speed)
+        });
         res.status(201).json({
             message: `${numRows} filas actualizadas`,
             data: playerUpdated

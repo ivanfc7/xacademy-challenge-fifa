@@ -161,6 +161,246 @@
             <input type="text" formControlName="fifa_update">
           </div>
         </div>
+
+        <h3 class="section-title">Categorias especificas de habilidades (Opcionales)</h3>
+        <div class="accordion-container">
+          <div class="accordion-item" [class.is-open]="secciones['ataque']">
+            <button type="button" class="accordion-header" (click)="desplegar('ataque')">
+              <span class="header-title">
+                <i class="fa-solid fa-futbol"></i> Ataque
+              </span>
+              <i class="fa-solid fa-chevron-down arrow-icon"></i>
+            </button>
+            <div class="accordion-content">
+              <div class="sliders-grid">
+                <div class="slider-group">
+                  Centros: <span>{{ playerForm.get('attacking_crossing')?.value }}</span>
+                  <input type="range" min="1" max="99" formControlName="attacking_crossing">
+                </div>
+                <div class="slider-group">
+                  Definición: <span>{{ playerForm.get('attacking_finishing')?.value }}</span>
+                  <input type="range" min="1" max="99" formControlName="attacking_finishing">
+                </div>
+                <div class="slider-group">
+                  Precisión Cabeza: <span>{{ playerForm.get('attacking_heading_accuracy')?.value }}</span>
+                  <input type="range" min="1" max="99" formControlName="attacking_heading_accuracy">
+                </div>
+                <div class="slider-group">
+                  Pase corto: <span>{{ playerForm.get('attacking_short_passing')?.value }}</span>
+                  <input type="range" min="1" max="99" formControlName="attacking_short_passing">
+                </div>
+                <div class="slider-group">
+                  Ataque voleo: <span>{{ playerForm.get('attacking_volleys')?.value }}</span>
+                  <input type="range" min="1" max="99" formControlName="attacking_volleys">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="accordion-container">
+          <div class="accordion-item" [class.is-open]="secciones['habilidad']">
+            <button type="button" class="accordion-header" (click)="desplegar('habilidad')">
+              <span class="header-title">
+                <i class="fa-solid fa-futbol"></i> Habilidad
+              </span>
+              <i class="fa-solid fa-chevron-down arrow-icon"></i>
+            </button>
+            <div class="accordion-content">
+              <div class="sliders-grid">
+                <div class="slider-group">
+                  Pase en el suelo: <span>{{ playerForm.get('skill_dribbling')?.value }}</span>
+                  <input type="range" min="1" max="99" formControlName="skill_dribbling">
+                </div>
+                <div class="slider-group">
+                  Pase en curva: <span>{{ playerForm.get('skill_curve')?.value }}</span>
+                  <input type="range" min="1" max="99" formControlName="skill_curve">
+                </div>
+                <div class="slider-group">
+                  Precisión en tiro libre: <span>{{ playerForm.get('skill_fk_accuracy')?.value }}</span>
+                  <input type="range" min="1" max="99" formControlName="skill_fk_accuracy">
+                </div>
+                <div class="slider-group">
+                  Pase largo: <span>{{ playerForm.get('skill_long_passing')?.value }}</span>
+                  <input type="range" min="1" max="99" formControlName="skill_long_passing">
+                </div>
+                <div class="slider-group">
+                  Control de balón: <span>{{ playerForm.get('skill_ball_control')?.value }}</span>
+                  <input type="range" min="1" max="99" formControlName="skill_ball_control">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="accordion-container">
+          <div class="accordion-item" [class.is-open]="secciones['movimiento']">
+            <button type="button" class="accordion-header" (click)="desplegar('movimiento')">
+              <span class="header-title">
+                <i class="fa-solid fa-futbol"></i> Movimientos
+              </span>
+              <i class="fa-solid fa-chevron-down arrow-icon"></i>
+            </button>
+            <div class="accordion-content">
+              <div class="sliders-grid">
+                <div class="slider-group">
+                  Aceleración: <span>{{ playerForm.get('movement_acceleration')?.value }}</span>
+                  <input type="range" min="1" max="99" formControlName="movement_acceleration">
+                </div>
+                <div class="slider-group">
+                  Velocidad de sprint: <span>{{ playerForm.get('movement_sprint_speed')?.value }}</span>
+                  <input type="range" min="1" max="99" formControlName="movement_sprint_speed">
+                </div>
+                <div class="slider-group">
+                  Agilidad: <span>{{ playerForm.get('movement_agility')?.value }}</span>
+                  <input type="range" min="1" max="99" formControlName="movement_agility">
+                </div>
+                <div class="slider-group">
+                  Reacciones: <span>{{ playerForm.get('movement_reactions')?.value }}</span>
+                  <input type="range" min="1" max="99" formControlName="movement_reactions">
+                </div>
+                <div class="slider-group">
+                  Equilibrio / Balance: <span>{{ playerForm.get('movement_balance')?.value }}</span>
+                  <input type="range" min="1" max="99" formControlName="movement_balance">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="accordion-container">
+          <div class="accordion-item" [class.is-open]="secciones['potencia']">
+            <button type="button" class="accordion-header" (click)="desplegar('potencia')">
+              <span class="header-title">
+                <i class="fa-solid fa-futbol"></i> Potencia
+              </span>
+              <i class="fa-solid fa-chevron-down arrow-icon"></i>
+            </button>
+            <div class="accordion-content">
+              <div class="sliders-grid">
+                <div class="slider-group">
+                 Potencia de tiro <span>{{ playerForm.get('power_shot_power')?.value }}</span>
+                  <input type="range" min="1" max="99" formControlName="power_shot_power">
+                </div>
+                <div class="slider-group">
+                  Potencia de salto: <span>{{ playerForm.get('power_jumping')?.value }}</span>
+                  <input type="range" min="1" max="99" formControlName="power_jumping">
+                </div>
+                <div class="slider-group">
+                  Resistencia: <span>{{ playerForm.get('power_stamina')?.value }}</span>
+                  <input type="range" min="1" max="99" formControlName="power_stamina">
+                </div>
+                <div class="slider-group">
+                  Fuerza: <span>{{ playerForm.get('power_strength')?.value }}</span>
+                  <input type="range" min="1" max="99" formControlName="power_strength">
+                </div>
+                <div class="slider-group">
+                  Tiros largos: <span>{{ playerForm.get('power_long_shots')?.value }}</span>
+                  <input type="range" min="1" max="99" formControlName="power_long_shots">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="accordion-container">
+          <div class="accordion-item" [class.is-open]="secciones['mentalidad']">
+            <button type="button" class="accordion-header" (click)="desplegar('mentalidad')">
+              <span class="header-title">
+                <i class="fa-solid fa-futbol"></i>Mentalidad
+              </span>
+              <i class="fa-solid fa-chevron-down arrow-icon"></i>
+            </button>
+            <div class="accordion-content">
+              <div class="sliders-grid">
+                <div class="slider-group">
+                 Aggresividad: <span>{{ playerForm.get('mentality_aggression')?.value }}</span>
+                  <input type="range" min="1" max="99" formControlName="mentality_aggression">
+                </div>
+                <div class="slider-group">
+                  Intercepciones: <span>{{ playerForm.get('mentality_interceptions')?.value }}</span>
+                  <input type="range" min="1" max="99" formControlName="mentality_interceptions">
+                </div>
+                <div class="slider-group">
+                  Posicionamiento: <span>{{ playerForm.get('mentality_positioning')?.value }}</span>
+                  <input type="range" min="1" max="99" formControlName="mentality_positioning">
+                </div>
+                <div class="slider-group">
+                  Visión de juego: <span>{{ playerForm.get('mentality_vision')?.value }}</span>
+                  <input type="range" min="1" max="99" formControlName="mentality_vision">
+                </div>
+                <div class="slider-group">
+                  Penales: <span>{{ playerForm.get('mentality_penalties')?.value }}</span>
+                  <input type="range" min="1" max="99" formControlName="mentality_penalties">
+                </div>
+                <div class="slider-group">
+                  Compostura / Serenidad: <span>{{ playerForm.get('mentality_composure')?.value }}</span>
+                  <input type="range" min="1" max="99" formControlName="mentality_composure">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="accordion-container">
+          <div class="accordion-item" [class.is-open]="secciones['defensa']">
+            <button type="button" class="accordion-header" (click)="desplegar('defensa')">
+              <span class="header-title">
+                <i class="fa-solid fa-futbol"></i>Defensa
+              </span>
+              <i class="fa-solid fa-chevron-down arrow-icon"></i>
+            </button>
+            <div class="accordion-content">
+              <div class="sliders-grid">
+                <div class="slider-group">
+                 Marcaje: <span>{{ playerForm.get('defending_marking')?.value }}</span>
+                  <input type="range" min="1" max="99" formControlName="defending_marking">
+                </div>
+                <div class="slider-group">
+                  Entradas al balón: <span>{{ playerForm.get('defending_standing_tackle')?.value }}</span>
+                  <input type="range" min="1" max="99" formControlName="defending_standing_tackle">
+                </div>
+                <div class="slider-group">
+                  Barridas: <span>{{ playerForm.get('defending_sliding_tackle')?.value }}</span>
+                  <input type="range" min="1" max="99" formControlName="defending_sliding_tackle">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="accordion-container">
+          <div class="accordion-item" [class.is-open]="secciones['porteria']">
+            <button type="button" class="accordion-header" (click)="desplegar('porteria')">
+              <span class="header-title">
+                <i class="fa-solid fa-futbol"></i>Porteria
+              </span>
+              <i class="fa-solid fa-chevron-down arrow-icon"></i>
+            </button>
+            <div class="accordion-content">
+              <div class="sliders-grid">
+                <div class="slider-group">
+                 Estiramiento: <span>{{ playerForm.get('goalkeeping_diving')?.value }}</span>
+                  <input type="range" min="1" max="99" formControlName="goalkeeping_diving">
+                </div>
+                <div class="slider-group">
+                  Manejo de mano: <span>{{ playerForm.get('goalkeeping_handling')?.value }}</span>
+                  <input type="range" min="1" max="99" formControlName="goalkeeping_handling">
+                </div>
+                <div class="slider-group">
+                  Despeje con el pie: <span>{{ playerForm.get('goalkeeping_kicking')?.value }}</span>
+                  <input type="range" min="1" max="99" formControlName="goalkeeping_kicking">
+                </div>
+                <div class="slider-group">
+                  Posición de arquero: <span>{{ playerForm.get('goalkeeping_positioning')?.value }}</span>
+                  <input type="range" min="1" max="99" formControlName="goalkeeping_positioning">
+                </div>
+                <div class="slider-group">
+                  Reflejos: <span>{{ playerForm.get('goalkeeping_reflexes')?.value }}</span>
+                  <input type="range" min="1" max="99" formControlName="goalkeeping_reflexes">
+                </div>
+                <div class="slider-group">
+                  Velocidad de arquero: <span>{{ playerForm.get('goalkeeping_speed')?.value }}</span>
+                  <input type="range" min="1" max="99" formControlName="goalkeeping_speed">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
   
         <div class="form-actions">
           <button class="btn btn-save" type="submit" [disabled]="isSubmitting">

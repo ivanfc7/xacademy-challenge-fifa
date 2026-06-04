@@ -129,3 +129,16 @@
     transform: scale(0.98); 
   }
 }
+
+.btn-passwd{
+  background:none;
+  border: none;
+  text-align: start;
+  cursor: pointer;
+  color:#3b82f6;
+
+  &:hover{
+    text-decoration: underline;
+  }
+
+}

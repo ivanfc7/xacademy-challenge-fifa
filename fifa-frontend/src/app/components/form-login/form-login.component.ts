@@ -14,6 +14,7 @@ export class FormLoginComponent {
   private readonly router = inject(Router);
   private readonly fb  = inject(FormBuilder);
   errorMessage = '';
+  showPasswd = false;
 
   loginForm = this.fb.group({
     email: ['', Validators.required],
@@ -23,6 +24,10 @@ export class FormLoginComponent {
   constructor (
     private readonly authService: AuthService,
   ){}
+
+  visiblePasswd(){
+    this.showPasswd = !this.showPasswd;
+  }
 
   onSubmit(){
     let email = this.loginForm.value.email;

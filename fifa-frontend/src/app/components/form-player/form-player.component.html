@@ -30,40 +30,29 @@
             <input type="text" formControlName="player_face_url">
           </div>
   
-          <div class="input-group">
-            <label for="player_positions">Posiciones * (Separadas por comas)</label>
-            <input type="text" formControlName="player_positions" placeholder="Ej: RW, ST, CAM">
-          </div>
-  
           <div class="input-group-row">
+            <div class="input-group">
+              <label for="player_positions">Posiciones * (Separadas por comas)</label>
+              <input type="text" formControlName="player_positions" placeholder="Ej: RW, ST, CAM">
+            </div>
             <div class="input-group">
               <label for="age">Edad *</label>
               <input type="number" formControlName="age">
             </div>
             <div class="input-group">
-              <label for="overall">Media (Overall) *</label>
-              <input type="number" formControlName="overall">
+              <label for="nationality_name">Nacionalidad</label>
+              <input type="text" formControlName="nationality_name" placeholder="Ej: Argentina">
             </div>
-            <div class="input-group">
-              <label for="potential">Potencial *</label>
-              <input type="number" formControlName="potential">
-            </div> 
           </div>
         </div>
   
         <h3 class="section-title">Club y Datos Físicos</h3>
         <div class="form-grid">
-          <div class="input-group">
-            <label for="club_name">Nombre del Club</label>
-            <input type="text" formControlName="club_name" placeholder="Ej: Real Madrid">
-          </div>
-  
-          <div class="input-group">
-            <label for="nationality_name">Nacionalidad</label>
-            <input type="text" formControlName="nationality_name" placeholder="Ej: Argentina">
-          </div>
-  
           <div class="input-group-row">
+            <div class="input-group">
+              <label for="club_name">Nombre del Club</label>
+              <input type="text" formControlName="club_name" placeholder="Ej: Real Madrid">
+            </div>
             <div class="input-group">
               <label for="value_eur">Valor (€)</label>
               <input type="number" formControlName="value_eur">
@@ -91,9 +80,17 @@
               </select>
             </div>
           </div>
+          <div class="input-group">
+            <label for="overall">Media (Overall) *</label>
+            <input type="number" formControlName="overall">
+          </div>
+          <div class="input-group">
+            <label for="potential">Potencial *</label>
+            <input type="number" formControlName="potential">
+          </div> 
         </div>
   
-        <h3 class="section-title">Atributos Clave (0 - 99)</h3>
+        <h3 class="section-title">Atributos Clave</h3>
         <div class="form-grid stats-grid">
           <div class="input-group">
             <label for="pace" class="stat-lbl-pac">Ritmo (PAC)</label>
@@ -120,7 +117,48 @@
             <input type="number" formControlName="physic">
           </div>
         </div>
+        <br>
+        <div class="input-group-row">
+          <div class="input-group">
+            <label for="weak_foot">Pierna Mala (1-5)</label>
+            <input type="number" formControlName="weak_foot">
+          </div>
+          <div class="input-group">
+            <label for="skill_moves">Mov. Especiales (1-5)</label>
+            <input type="number" formControlName="skill_moves">
+          </div>
+          <div class="input-group">
+            <label for="international_reputation">Reputación Internacional (1-5)</label>
+            <input type="number" formControlName="international_reputation">
+          </div>
+        </div>
+        <br>
+        <div class="input-group-row">
+          <div class="input-group">
+            <label for="weak_rate">Ritmo de trabajo</label>
+            <select formControlName="work_rate" class="custom-select">
+              <option value="Low/Low">Low/Low</option>
+              <option value="Low/Medium">Low/Medium</option>
+              <option value="Low/High">Low/High</option>
+              <option value="Medium/Low">Medium/Low</option>
+              <option value="Medium/Medium">Medium/Medium</option>
+              <option value="Medium/High">Medium/High</option>
+              <option value="High/Low">HighLow</option>
+              <option value="High/Medium">High/Medium</option>
+              <option value="High/High">High/High</option>
+            </select>
+          </div>
+          <div class="input-group">
+            <label for="body_type">Tipo de cuerpo</label>
+            <input type="text" formControlName="body_type">
+          </div>
+          <div class="input-group">
+            <label for="player_traits">Rasgos del jugador</label>
+            <input type="text" formControlName="player_traits">
+          </div>
+        </div>
   
+        <h3 class="section-title">Versiones FIFA</h3>
         <div class="input-group-row metadata-footer">
           <div class="input-group">
             <label for="fifa_version">Versión FIFA</label>

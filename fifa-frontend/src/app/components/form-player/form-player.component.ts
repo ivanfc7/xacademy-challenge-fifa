@@ -48,7 +48,6 @@ export class FormPlayerComponent {
 
   initForm(): void {
     this.playerForm = this.fb.group({
-      // --- DATOS PRINCIPALES (allowNull: false) ---
       fifa_version: ['24', Validators.required],
       fifa_update: ['1', Validators.required],
       player_face_url: ['https://fifa/player/not_found', [Validators.required, Validators.pattern('https?://.+')]],
@@ -58,7 +57,6 @@ export class FormPlayerComponent {
       overall: [60, [Validators.required, Validators.min(1), Validators.max(99)]],
       potential: [65, [Validators.required, Validators.min(1), Validators.max(99)]],
 
-      // --- DATOS CLUB Y NACIONALIDAD (allowNull: true) ---
       club_name: [''],
       nationality_name: [''],
       value_eur: [0],
@@ -67,7 +65,6 @@ export class FormPlayerComponent {
       weight_kg: [75],
       preferred_foot: ['Right'],
 
-      // --- ESTADÍSTICAS PRINCIPALES DEL JUGADOR (FIFA HEXÁGONO) ---
       pace: [50, [Validators.min(0), Validators.max(99)]],
       shooting: [50, [Validators.min(0), Validators.max(99)]],
       passing: [50, [Validators.min(0), Validators.max(99)]],
@@ -75,13 +72,56 @@ export class FormPlayerComponent {
       defending: [50, [Validators.min(0), Validators.max(99)]],
       physic: [50, [Validators.min(0), Validators.max(99)]],
 
-      // --- OTRAS ESTADÍSTICAS (Mapeadas a por defecto para no saturar) ---
-      weak_foot: [3],
-      skill_moves: [3],
-      international_reputation: [1],
+      weak_foot: [3, [Validators.min(1), Validators.max(5)]],
+      skill_moves: [3, [Validators.min(1), Validators.max(5)]],
+      international_reputation: [3, [Validators.min(1), Validators.max(5)]],
       work_rate: ['Medium/Medium'],
       body_type: ['Normal'],
-      player_traits: ['']
+      player_traits: [''],
+
+      // Valores por defecto no figuran en el formulario
+      // Atacantes
+      attacking_crossing: [50],
+      attacking_finishing: [50],
+      attacking_heading_accuracy: [50],
+      attacking_short_passing: [50],
+      attacking_volleys: [50],
+      // Skills detallados
+      skill_dribbling: [50],
+      skill_curve: [50],
+      skill_fk_accuracy: [50],
+      skill_long_passing: [50],
+      skill_ball_control: [50],
+      // Movimientos
+      movement_acceleration: [50],
+      movement_sprint_speed: [50],
+      movement_agility: [50],
+      movement_reactions: [50],
+      movement_balance: [50],
+      // Poderes
+      power_shot_power: [50],
+      power_jumping: [50],
+      power_stamina: [50],
+      power_strength: [50],
+      power_long_shots: [50],
+      // Mentalidad
+      mentality_aggression: [50],
+      mentality_interceptions: [50],
+      mentality_positioning: [50],
+      mentality_vision: [50],
+      mentality_penalties: [50],
+      mentality_composure: [50],
+      // Defensivos internos
+      defending_marking: [50],
+      defending_standing_tackle: [50],
+      defending_sliding_tackle: [50],
+      // Porteros
+      goalkeeping_diving: [50],
+      goalkeeping_handling: [50],
+      goalkeeping_kicking: [50],
+      goalkeeping_positioning: [50],
+      goalkeeping_reflexes: [50],
+      goalkeeping_speed: [50]
     });
   }
 
@@ -109,7 +149,13 @@ export class FormPlayerComponent {
       passing: player.passing,
       dribbling: player.dribbling,
       defending: player.defending,
-      physic: player.physic
+      physic: player.physic,
+      weak_foot: player.weak_foot,
+      skill_moves: player.skill_moves,
+      international_reputation: player.international_reputation,
+      work_rate: player.work_rate,
+      body_type: player.body_type,
+      player_traits: player.player_traits,
     });
   }
 

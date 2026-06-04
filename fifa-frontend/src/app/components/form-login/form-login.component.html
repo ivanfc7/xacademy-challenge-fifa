@@ -29,10 +29,11 @@
         <div class="input-group">
           <i class="fa-solid fa-lock input-icon"></i>
           <input 
-            type="password" 
+            type="{{showPasswd? 'text': 'password'}}" 
             formControlName="password" 
             placeholder="Contraseña">
         </div>
+        <button class="btn-passwd" type="button" (click)="visiblePasswd()">{{ showPasswd? 'Ocultar Contraseña': 'Mostrar Contraseña'}}</button>
         
         <button class="btn-login" type="submit">
           Ingresar

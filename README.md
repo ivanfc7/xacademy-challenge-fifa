@@ -23,6 +23,10 @@ Este proyecto consta de un backend en Node.js (Express + Sequelize) y un fronten
 ### Instrucciones para ver la documentacion de API 
 1. Luego de levantar el servidor backend ingresar a la url `http://localhost:8080/api-docs`
 
+### Credenciales para el login
+- email: admin@gmail.com
+- password: abc789 
+
 ## Decisiones tecnicas
 - El programa se desarrollo en windows 10.
 - No se utilizo Docker debido a los recursos de la computadora (4 GB de RAM)

@@ -2,17 +2,32 @@
 
 Este proyecto consta de un backend en Node.js (Express + Sequelize) y un frontend en Angular 19.
 
-## Requisitos Previos
-- Node.js (versión 22.12.0)
-- MySQL con phpMyAdmin
+## 🐳 Instrucciones para ejecutar el proyecto con Docker
 
-## Instrucciones para correr el sistema 
+#### 1. Clonar el repositorio y posicionarse en la raíz
+
+```bash
+git clone https://github.com/ivanfc7/xacademy-challenge-fifa.git
+cd xacademy-challenge-fifa
+```
+
+#### 2. Levantar todo con: 
+```bash
+docker compose up --build
+```
+
+## Instrucciones para correr el sistema en local
+
+## Requisitos Previos en local
+- Node.js (versión 22.12.0)
+- MySQL con phpMyAdmin e importar la BD que esta en docker/bd/init.sql
 
 ### Instrucciones para el Backend
 1. Navega a la carpeta del backend: `cd fifa-backend`
 2. Instala las dependencias: `npm install`
-3. El archivo `.env` contiene las credenciales para la base de datos.
-4. Correr el comando `node src/app.js`
+3. El archivo `.env` contiene las credenciales para la base de datos. 
+4. Descomentar el primer bloque y comentar el segundo bloque de variables en el `.env`
+5. Correr el comando `node src/app.js`
 
 ### Instrucciones para el Frontend
 1. Navega a la carpeta del frontend: `cd fifa-frontend`
@@ -29,8 +44,7 @@ Este proyecto consta de un backend en Node.js (Express + Sequelize) y un fronten
 
 ## Decisiones tecnicas
 - El programa se desarrollo en windows 10.
-- No se utilizo Docker debido a los recursos de la computadora (4 GB de RAM)
-- No se hizo una instalacion boot de Linux debido a cuestiones universitarias que hicieron que deba mantener windows.
+- No se pudo probar Docker debido a los recursos de la computadora (4 GB de RAM) Sin embargo se realizo los archivos de configuracion de docker
 - Se trabajo con una parte de la base de datos `fifa_male_players.sql`. No se exporto todo debido a que phpMyAdmin lo restringia por el tamaño en MB.
 - La documentacion de las APIs se realizo utilizando `swagger.js`
   

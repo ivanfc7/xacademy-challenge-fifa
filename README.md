@@ -51,7 +51,10 @@ docker compose up --build
 ## Historial de commits
 ```bash
 λ git log --oneline
-c300225 (HEAD -> master, origin/master) Implementacion de detalles faltantes
+435ba81 (HEAD -> master, origin/master) Archivos de docker
+c527cbe Terminando el formulario del jugador
+7538689 Implementacion de detalles en el formulario del jugador
+c300225 Implementacion de detalles faltantes
 e528a12 Implementacion de swagger.js
 6c5688d Funcion cerrar sesion y otros detalles
 20ff537 Terminando la funcion editar jugados en el frontend
